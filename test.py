@@ -59,7 +59,7 @@ def random_proportional_test(dataset, path):
 # RANDOM TO DEGREE PROBABILITY - MEDIAN THRESHOLD
 def random_median_test(dataset, path):
     avg = np.zeros(10)
-    file_name = "Tests/"+dataset+"_tests/test_pr.csv"
+    file_name = "Tests/"+dataset+"_tests/test_rm.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
     iterations = 50
 
@@ -77,7 +77,7 @@ def random_median_test(dataset, path):
 # RANDOM TO DEGREE PROBABILITY - MOST FREQUENT THRESHOLD
 def random_mostfrequent_test(dataset, path):
     avg = np.zeros(10)
-    file_name = "Tests/"+dataset+"_tests/test_pr.csv"
+    file_name = "Tests/"+dataset+"_tests/test_rmf.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
     iterations = 50
 
@@ -149,7 +149,7 @@ def proportional_random_test(dataset, path):
 # PROPORTIONAL TO DEGREE PROBABILITY - MEDIAN THRESHOLD
 def proportional_median_test(dataset, path):
     avg = np.zeros(10)
-    file_name = "Tests/"+dataset+"_tests/test_pr.csv"
+    file_name = "Tests/"+dataset+"_tests/test_pm.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
     iterations = 50
 
@@ -167,7 +167,7 @@ def proportional_median_test(dataset, path):
 # PROPORTIONAL TO DEGREE PROBABILITY - MOST FREQUENT THRESHOLD
 def proportional_mostfrequent_test(dataset, path):
     avg = np.zeros(10)
-    file_name = "Tests/"+dataset+"_tests/test_pr.csv"
+    file_name = "Tests/"+dataset+"_tests/test_pmf.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
     iterations = 50
 
@@ -182,4 +182,6 @@ def proportional_mostfrequent_test(dataset, path):
     for y in range(0, 10):
         open(file_name, 'a+').write("%d %d\n" % (y+1, avg[y]/iterations))
 
-random_fixed_test('rnd_graph_1','Datasets/rnd_graph_1.txt')
+g = graph.create_graph('Datasets/rnd_graph_1.txt')
+graph.print_info(g)
+#random_fixed_test('rnd_graph_1','Datasets/rnd_graph_1.txt')

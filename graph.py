@@ -7,7 +7,7 @@ import numpy as np
 
 # function for initialize graph from a file
 def create_graph(filePath):
-    graph = snap.LoadEdgeList(snap.PNGraph, filePath, 0, 1)
+    graph = snap.LoadEdgeList(snap.PUNGraph, filePath, 0, 1)
     #print_info(graph)
     return graph
 
@@ -40,23 +40,29 @@ def print_info(graph):
 #function to eliminate edges with randomly generated probabilities
 def edge_random_probability(graph):
     print("Number of starting edges: ", graph.GetEdges())
+    remove_edge = []
     for n in graph.Nodes():
         for e in n.GetOutEdges():
             random_edge_probability = round(random.uniform(0.1, 1), 5)
             random_del_probability = round(random.uniform(0.1, 1), 5)
             if random_edge_probability >= random_del_probability:
-                graph.DelEdge(n.GetId(), e)            
+                remove_edge.append(e)
+        for dest in remove_edge:
+            graph.DelEdge(n.GetId(), dest)
     print("Number of remaining edges: ", graph.GetEdges())
 
 #function to eliminate edges with probability proportional to the degree of the node
 def edge_proportional_to_degree_probability(graph):
     print("Number of starting edges: ", graph.GetEdges())
+    remove_edge = []
     for n in graph.Nodes():
         for e in n.GetOutEdges():
             random_edge_probability = (1/n.GetDeg())
             random_del_probability = random.random()
             if random_edge_probability >= random_del_probability:
-                graph.DelEdge(n.GetId(), e)
+                remove_edge.append(e)
+        for dest in remove_edge:
+            graph.DelEdge(n.GetId(), dest)
     print("Number of remaining edges: ", graph.GetEdges())
 
 #function to set random thresholds to the edges of the graph

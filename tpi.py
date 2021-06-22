@@ -9,7 +9,16 @@ nodes_list = []  # U
 
 # Algorithm TPI
 def tpi(graph):
-
+    global s_v       
+    global d_v 
+    global k_v
+    global N_v 
+    global nodes_list
+    s_v = {}         # partial incentive initially assigned to v
+    d_v = {}         # nodes' degrees
+    k_v = {}         # nodes' thresholds
+    N_v = {}         # nodes' neighbours
+    nodes_list = []  # U
     remaining_nodes = 0  # number of nodes remaining after algorithm runs
     nodes_with_incentives = 0  # number of nodes with incentives
     sum_s_v = 0  # sum of total incentives
@@ -56,15 +65,26 @@ def tpi(graph):
             eliminate_node(node)
 
     print("Number of total incentives: ", nodes_with_incentives, " with total value of ", sum_s_v, " and number of remaining nodes: ", remaining_nodes)
-    return s_v
+    return nodes_with_incentives, sum_s_v, remaining_nodes
 
   # This function initializes the nodelist
 def initialize_nodelist(graph):
+    global s_v       
+    global d_v 
+    global k_v
+    global N_v 
+    global nodes_list    
     for n in graph.Nodes():
         nodes_list.append(n.GetId())
+    #print(nodes_list)
 
  # This function initializes variables
 def initialize_variables(graph):
+    global s_v       
+    global d_v 
+    global k_v
+    global N_v 
+    global nodes_list
     for v in graph.Nodes():
         s_v[v.GetId()] = 0
         d_v[v.GetId()] = v.GetOutDeg()
@@ -76,14 +96,29 @@ def initialize_variables(graph):
 
 # This function calculates the local max of nodes
 def calculate_localMax(u):
+    global s_v       
+    global d_v 
+    global k_v
+    global N_v 
+    global nodes_list
     return (k_v[u] * (k_v[u] + 1)) / (d_v[u] * (d_v[u] + 1))
 
   # This function updates incentives of a node
 def update_incentive(v):
+    global s_v       
+    global d_v 
+    global k_v
+    global N_v 
+    global nodes_list
     return (s_v[v] + k_v[v] - d_v[v])
 
 # This function eliminates node
 def eliminate_node(node):
+    global s_v       
+    global d_v 
+    global k_v
+    global N_v 
+    global nodes_list
     if N_v[node] is not None:
         for u in N_v[node]:
             d_v[u] -= 1

@@ -65,7 +65,7 @@ def tpi(graph):
             eliminate_node(node)
 
     print("Number of total incentives: ", nodes_with_incentives, " with total value of ", sum_s_v, " and number of remaining nodes: ", remaining_nodes)
-    return sum_s_v
+    return s_v
 
   # This function initializes the nodelist
 def initialize_nodelist(graph):

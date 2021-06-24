@@ -69,8 +69,9 @@ def edge_proportional_to_degree_probability(graph):
 def set_random_threshold(graph):
     g = snap.ConvertGraph(snap.PNEANet, graph) # PNEANet correspond to TNEANet, conversion of graph in directed multigraphs (multiple directed edges between an ordered pair of nodes) with attributes for nodes and edges
     for n in g.Nodes():
-        #max= n.GetDeg() + int((n.GetDeg()/100)*20+1)
-        random_value = random.randint(0, n.GetDeg())
+        max= n.GetDeg() + int((n.GetDeg()/100)*30+1)
+        random_value = random.randint(0, max)
+        #print(random_value)
         g.AddIntAttrDatN(n.GetId(), random_value, "threshold")
         #print("Threshold of the node ", n.GetId()," with value", g.GetIntAttrDatN(n.GetId(),"threshold"))
     return g
@@ -111,6 +112,7 @@ def set_median_threshold(graph):
     count=0
     for n in g.Nodes():
         data.append(n.GetDeg())
+    #print(data)
     value = median(data)
     print("The median value is: ", value)
     for n in g.Nodes():

@@ -1,1 +1,3 @@
 deezer https://snap.stanford.edu/data/feather-deezer-social.html
+bitcoin https://snap.stanford.edu/data/soc-sign-bitcoin-alpha.html
+lastfm https://snap.stanford.edu/data/feather-lastfm-social.html

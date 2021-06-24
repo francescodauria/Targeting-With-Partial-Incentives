@@ -8,7 +8,7 @@ def random_fixed_test(dataset, path):
     avg = np.zeros(10)
     file_name = "Tests/"+dataset+"_tests/test_rf.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)
@@ -26,7 +26,7 @@ def random_random_test(dataset, path):
     avg = 0
     file_name = "Tests/"+dataset+"_tests/test_rr.csv"
     open(file_name, 'w+').write("Iteration Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)
@@ -43,7 +43,7 @@ def random_proportional_test(dataset, path):
     avg = np.zeros(10)
     file_name = "Tests/"+dataset+"_tests/test_rp.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)
@@ -60,7 +60,7 @@ def random_median_test(dataset, path):
     avg = np.zeros(10)
     file_name = "Tests/"+dataset+"_tests/test_rm.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)
@@ -77,7 +77,7 @@ def random_mostfrequent_test(dataset, path):
     avg = np.zeros(10)
     file_name = "Tests/"+dataset+"_tests/test_rmf.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)
@@ -94,7 +94,7 @@ def proportional_proportional_test(dataset, path):
     avg = np.zeros(10)
     file_name = "Tests/"+dataset+"_tests/test_pp.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)
@@ -111,7 +111,7 @@ def proportional_fixed_test(dataset, path):
     avg = np.zeros(10)
     file_name = "Tests/"+dataset+"_tests/test_pf.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)
@@ -128,7 +128,7 @@ def proportional_random_test(dataset, path):
     avg = np.zeros(10)
     file_name = "Tests/"+dataset+"_tests/test_pr.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)
@@ -145,7 +145,7 @@ def proportional_median_test(dataset, path):
     avg = np.zeros(10)
     file_name = "Tests/"+dataset+"_tests/test_pm.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)
@@ -162,7 +162,7 @@ def proportional_mostfrequent_test(dataset, path):
     avg = np.zeros(10)
     file_name = "Tests/"+dataset+"_tests/test_pmf.csv"
     open(file_name, 'w+').write("Threshold AVG_Incentives\n")
-    iterations = 50
+    iterations = 10
 
     for j in range(0, iterations):
         g = graph.create_graph(path)

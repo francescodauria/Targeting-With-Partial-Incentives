@@ -174,6 +174,6 @@ def proportional_mostfrequent_test(dataset, path):
     #for y in range(0, 10):
     #    open(file_name, 'a+').write("%d %d\n" % (y+1, avg[y]/iterations))
 
-g = graph.create_graph('Datasets/rnd_graph_1.txt')
-graph.print_info(g)
+#g = graph.create_graph('Datasets/rnd_graph_1.txt')
+#graph.print_info(g)
 #random_fixed_test('rnd_graph_1','Datasets/rnd_graph_1.txt')

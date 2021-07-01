@@ -99,7 +99,7 @@ def edge_random_probability(graph):
         
     print("Number of remaining edges: ", graph.GetEdges() - len(remove_edge))
 
-g = graph.create_graph('Datasets/lastfm.txt')
+g = graph.random_graph_generator(10000,45000,"1")
 graph.print_info(g)
 #g2 = graph.create_graph('Datasets/deezer.txt')
 #edge_proportional_to_degree_probability(g)

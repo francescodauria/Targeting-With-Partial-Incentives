@@ -1,6 +1,6 @@
 import random
 import copy
-
+import numpy as np
 from networkx.generators.degree_seq import DegreeSequenceRandomGraph
 import test
 import graph 
@@ -23,15 +23,29 @@ def getNodesList() :
         #print(sum(d.values()))
     return l
 
-def sum () :
-    f = open('Tests/rnd_graph_2_tests/test_pf.csv')
+def sumValues() :
+    avg_nodes = np.zeros(10)
+    #print(avg_nodes)
+    avg_incentives = np.zeros(10)
+    f = open('Tests_old/bitcoin_tests/test_rr.csv')
     f.readline()
     lines = f.readlines()
     for line in lines :
-        iteration = line.split('{')[0]
+        iteration = line.split('{')[0].replace(" ", "")
         results = line.split('{')[1]
         d = ast.literal_eval('{'+results)
-        print(sum(d.values()))
+        #print(int(iteration) - 1, len(d))
+        avg_nodes[int(iteration) - 1 ] += sum([1 for i in d.values() if i != 0])
+        avg_incentives[int(iteration) - 1] += sum(d.values())
+    file_name = 'Tests/bitcoin_tests/test_rr.csv'   
+    open(file_name, 'a+').write("%s\n" % (avg_incentives))  
+    open(file_name, 'a+').write("%s\n" % (avg_nodes)) 
+    
+    #print(avg_nodes)
+    #print(avg_incentives)
+        #print("Iterazione " +iteration)
+        #print(sum(d.values()))
+        #print(len(d))
 
 def edge_proportional_to_degree_probability(g):
     print("Number of starting edges: ", g.GetEdges())
@@ -99,8 +113,10 @@ def edge_random_probability(graph):
         
     print("Number of remaining edges: ", graph.GetEdges() - len(remove_edge))
 
-g = graph.random_graph_generator(10000,45000,"1")
-graph.print_info(g)
+#g = graph.random_graph_generator(10000,45000,"1")
+#graph.print_info(g)
 #g2 = graph.create_graph('Datasets/deezer.txt')
 #edge_proportional_to_degree_probability(g)
 #edge_proportional_to_degree_probability2(g, g2)
+sumValues()
+#test.random_random_test('bitcoin','Datasets/bitcoin.txt')

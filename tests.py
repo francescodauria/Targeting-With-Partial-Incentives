@@ -1,4 +1,4 @@
-import random
+#import random
 import copy
 import numpy as np
 from networkx.generators.degree_seq import DegreeSequenceRandomGraph
@@ -9,7 +9,7 @@ import ast
 #g = graph.create_graph('Datasets/rnd_graph_2.txt')
 #graph.print_info(g)
 #test.proportional_mostfrequent_test('rnd_graph_2', 'Datasets/rnd_graph_2.txt')
-def getNodesList() :
+'''def getNodesList() :
     f = open('Tests/deezer_tests/test_pmf.csv')
     f.readline()
     lines = f.readlines()
@@ -22,12 +22,12 @@ def getNodesList() :
         #print(len(d))
         #print(sum(d.values()))
     return l
-
+'''
 def sumValues() :
-    avg_nodes = np.zeros(10)
+    avg_nodes = np.zeros(20)
     #print(avg_nodes)
-    avg_incentives = np.zeros(10)
-    f = open('Tests_old/bitcoin_tests/test_rr.csv')
+    avg_incentives = np.zeros(20)
+    f = open('Tests_old/rnd_graph_1_tests/test_rr.csv')
     f.readline()
     lines = f.readlines()
     for line in lines :
@@ -35,9 +35,9 @@ def sumValues() :
         results = line.split('{')[1]
         d = ast.literal_eval('{'+results)
         #print(int(iteration) - 1, len(d))
-        avg_nodes[int(iteration) - 1 ] += sum([1 for i in d.values() if i != 0])
-        avg_incentives[int(iteration) - 1] += sum(d.values())
-    file_name = 'Tests/bitcoin_tests/test_rr.csv'   
+        avg_nodes[int(iteration)  ] += sum([1 for i in d.values() if i != 0 ])
+        avg_incentives[int(iteration) ] += sum(d.values())
+    file_name = 'Tests/rnd_graph_1_tests/test_rr.csv'   
     open(file_name, 'a+').write("%s\n" % (avg_incentives))  
     open(file_name, 'a+').write("%s\n" % (avg_nodes)) 
     
@@ -46,7 +46,7 @@ def sumValues() :
         #print("Iterazione " +iteration)
         #print(sum(d.values()))
         #print(len(d))
-
+'''
 def edge_proportional_to_degree_probability(g):
     print("Number of starting edges: ", g.GetEdges())
     remove_edge = []
@@ -117,6 +117,6 @@ def edge_random_probability(graph):
 #graph.print_info(g)
 #g2 = graph.create_graph('Datasets/deezer.txt')
 #edge_proportional_to_degree_probability(g)
-#edge_proportional_to_degree_probability2(g, g2)
+#edge_proportional_to_degree_probability2(g, g2)'''
 sumValues()
 #test.random_random_test('bitcoin','Datasets/bitcoin.txt')
